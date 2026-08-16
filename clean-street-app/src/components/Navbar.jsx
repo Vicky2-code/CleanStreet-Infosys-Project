@@ -3,6 +3,7 @@ import useAuthStore from "../store/authStore";
 import "../styles/navbar.css";
 import logo from "../assets/logo.png";
 import defaultProfile from "../assets/profile-icon1.png";
+import { API_BASE_URL } from "../api/config";
 
 export default function Navbar() {
   const { user, logout } = useAuthStore();
@@ -35,7 +36,7 @@ export default function Navbar() {
                 <img
                   src={
                     user && user._id
-                      ? `http://localhost:5000/api/user/profile/photo/${user._id}`
+                      ? `${API_BASE_URL}/user/profile/photo/${user._id}`
                       : defaultProfile
                   }
                   alt="profile"

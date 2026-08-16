@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: cleanstreet-backend
+    runtime: node
+    rootDir: clean-street-backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: FRONTEND_URL
+        value: https://cleanstreet-frontend.onrender.com
+
+  - type: web
+    name: cleanstreet-frontend
+    runtime: static
+    rootDir: clean-street-app
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://cleanstreet-backend.onrender.com/api

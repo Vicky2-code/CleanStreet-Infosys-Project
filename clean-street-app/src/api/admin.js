@@ -1,7 +1,8 @@
 // frontend/api/admin.js
 
-const API_BASE_URL = "http://localhost:5000/api/admin"; 
-// 👆 change 5000 to your backend port
+import { API_BASE_URL } from "./config";
+
+const API_BASE_URL = `${API_BASE_URL}/admin`;
 
 /**
  * Get admin metrics (total, resolved, inReview, received complaints)

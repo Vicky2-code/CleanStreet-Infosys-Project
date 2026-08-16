@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/client";
+import { API_BASE_URL } from "../api/config";
 import { getComplaints } from "../api/complaints";
 import "../styles/dashboard.css";
 
@@ -78,7 +79,7 @@ export default function Dashboard() {
                     {c.photos.map((_, index) => (
                       <img
                         key={index}
-                        src={`http://localhost:5000/api/complaints/${c._id}/photo/${index}`}
+                        src={`${API_BASE_URL}/complaints/${c._id}/photo/${index}`}
                         alt={`Complaint ${index}`}
                         className="complaint-photo"
                       />

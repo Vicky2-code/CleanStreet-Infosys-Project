@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/client";
+import { API_BASE_URL } from "../api/config";
 import {
   LineChart,
   Line,
@@ -97,7 +98,7 @@ export default function AdminReports() {
   const handleExport = async (format) => {
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://localhost:5000/api/reports/export/${format}`, {
+    const res = await fetch(`${API_BASE_URL}/reports/export/${format}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 

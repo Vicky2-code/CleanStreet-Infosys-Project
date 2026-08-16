@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/client";
+import { API_BASE_URL } from "../api/config";
 import "../styles/profile.css";
 import defaultProfile from "../assets/profile-icon1.png";
 
@@ -156,7 +157,7 @@ export default function EditProfile() {
       <img
         src={
           profile.profilePhoto
-            ? `http://localhost:5000/api/user/profile/photo/${profile._id}`
+            ? `${API_BASE_URL}/user/profile/photo/${profile._id}`
             : defaultProfile
         }
         alt="Profile"

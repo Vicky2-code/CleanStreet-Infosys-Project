@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import api from "../api/client";
+import { API_BASE_URL } from "../api/config";
 import AdminReports from "./AdminReports";
 import "../styles/adminDashboard.css";
 import {
@@ -221,7 +222,7 @@ export default function AdminDashboard() {
                       {c.photos.map((_, idx) => (
                         <img
                           key={idx}
-                          src={`http://localhost:5000/api/complaints/${c._id}/photo/${idx}`}
+                          src={`${API_BASE_URL}/complaints/${c._id}/photo/${idx}`}
                           alt={`Complaint ${idx}`}
                         />
                       ))}

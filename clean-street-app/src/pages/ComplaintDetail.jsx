@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByComplaint, addComment } from "../api/comments";
 import api from "../api/client";
+import { API_BASE_URL } from "../api/config";
 import "../styles/complaintDetail.css";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -119,7 +120,7 @@ export default function ComplaintDetail() {
           complaint.photos.map((_, idx) => (
             <img
               key={idx}
-              src={`http://localhost:5000/api/complaints/${complaint._id}/photo/${idx}`}
+              src={`${API_BASE_URL}/complaints/${complaint._id}/photo/${idx}`}
               alt={`Complaint ${idx}`}
               className="complaint-photo"
             />
